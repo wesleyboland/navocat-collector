@@ -388,11 +388,6 @@ module Meda
         cookies.delete("_meda_profile_id")
         respond_with_pixel
       end
-
-
-      get 'meda/gettest.page' do
-
-      end
      
 
       # Config
