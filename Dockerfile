@@ -12,6 +12,8 @@ WORKDIR /usr/src/app
 
 COPY . /usr/src/app
 
+VOLUME /meda_data
+
 RUN bundle install && gem install puma
 
 EXPOSE ${APP_PORT}
