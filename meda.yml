@@ -17,7 +17,7 @@ development:
     error_email_from_account_password: update
     error_email_to_account: [x@medullan.com,x@medullan.com]
   redis:
-    host: localhost
+    host: 52.6.79.117
     port: 6379
     password: nil
     pool: 10
@@ -28,7 +28,7 @@ development:
     pre_request_log: true
     post_request_log: true
     logs_postgres: false
-    profile_store: hashdb
+    profile_store: redisdb
     profile_loader: true
     profile_service: onekey
     all_log_file_logger: true
