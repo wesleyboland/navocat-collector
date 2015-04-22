@@ -7,8 +7,8 @@ require 'pathname'
  
 
 module Meda
-  MEDA_CONFIG_FILE = 'meda.yml'
-  DATASETS_CONFIG_FILE = 'datasets.yml'
+  MEDA_CONFIG_FILE = ENV['MEDA_LOCATION'] || 'meda.yml'
+  DATASETS_CONFIG_FILE = ENV['DATASET_LOCATION'] || 'datasets.yml'
 
   class << self
     attr_accessor :configuration

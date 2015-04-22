@@ -71,7 +71,7 @@ module Meda
         pool_size = @config.redis[:pool] || REDIS_POOL_DEFAULT
         time_out = @config.redis[:time_out] || REDIS_TIMEOUT_DEFAULT
         @redis_pool = ConnectionPool.new(size: pool_size, timeout: time_out) do
-          Redis.new(:host => "52.0.224.221", :port => @config.redis[:port], :password => @config.redis[:password])
+          Redis.new(:host => @config.redis[:host], :port => @config.redis[:port], :password => @config.redis[:password])
         end
       end
       @redis_pool
