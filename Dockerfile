@@ -6,6 +6,7 @@ FROM jruby:1.7.19
 RUN groupadd -r redis && useradd -r -g redis redis
 
 RUN apt-get update \
+	&& apt-get install -y git \
 	&& apt-get install -y curl \
 	&& rm -rf /var/lib/apt/lists/*
 
@@ -46,7 +47,6 @@ VOLUME /data
 ENV MEDA_LOCATION /usr/src/app/external_configs/meda.yml
 ENV DATASET_LOCATION /usr/src/app/external_configs/datasets.yml
 
-RUN apt-get update && apt-get install -y git
 RUN mkdir -p /usr/src/app
 
 WORKDIR /usr/src/app
