@@ -52,4 +52,4 @@ EXPOSE 8000
 
 RUN chmod +x entrypoint.sh
 
-ENTRYPOINT ["entrypoint.sh"]
+ENTRYPOINT ["/usr/src/app/entrypoint.sh"]

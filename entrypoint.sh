@@ -2,6 +2,6 @@
 
 set -e
 
-redis-server appendonly yes &
+redis-server --appendonly yes &
 
 $@
