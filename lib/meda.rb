@@ -7,8 +7,22 @@ require 'pathname'
  
 
 module Meda
-  MEDA_CONFIG_FILE = ENV['MEDA_LOCATION'] || 'meda.yml'
-  DATASETS_CONFIG_FILE = ENV['DATASET_LOCATION'] || 'datasets.yml'
+
+  if ENV['MEDA_LOCATION'].blank?
+    MEDA_CONFIG_FILE = 'meda.yml'
+    puts "DEFAULT: using meda.yml from root app directory: #{MEDA_CONFIG_FILE}"
+  else
+    MEDA_CONFIG_FILE = ENV['MEDA_LOCATION']
+    puts "using meda.yml from environment variable location: #{MEDA_CONFIG_FILE}"
+  end
+
+  if ENV['DATASET_LOCATION'].blank?
+    DATASETS_CONFIG_FILE = 'datasets.yml'
+    puts "DEFAULT: using datasets.yml from root app directory: #{DATASETS_CONFIG_FILE}"
+  else
+    DATASETS_CONFIG_FILE = ENV['DATASET_LOCATION']
+    puts "using datasets.yml from environment variable location: #{DATASETS_CONFIG_FILE}"
+  end
 
   class << self
     attr_accessor :configuration
