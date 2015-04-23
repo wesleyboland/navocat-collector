@@ -35,6 +35,7 @@ VOLUME /data
 # ============COLLECTOR CONFIGS=========
 ENV MEDA_LOCATION /usr/src/app/external_configs/meda.yml
 ENV DATASET_LOCATION /usr/src/app/external_configs/datasets.yml
+ENV JRUBY_OPTS -J-Xmx2g
 
 RUN mkdir -p /usr/src/app
 
