@@ -2,4 +2,6 @@
 
 set -e
 
-nohup redis-server appendonly yes &
+redis-server appendonly yes &
+
+$@
