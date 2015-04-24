@@ -2,6 +2,6 @@
 
 set -e
 
-redis-server $REDIS_CONF_LOCATION
+redis-server $REDIS_CONF_LOCATION &
 
 $@
