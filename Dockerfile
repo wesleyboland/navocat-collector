@@ -10,6 +10,7 @@ RUN apt-get update \
 ENV REDIS_VERSION 3.0.0
 ENV REDIS_DOWNLOAD_URL http://download.redis.io/releases/redis-3.0.0.tar.gz
 ENV REDIS_DOWNLOAD_SHA1 c75fd32900187a7c9f9d07c412ea3b3315691c65
+ENV REDIS_CONF_LOCATION /usr/src/app/redis/redis.conf
 
 # for redis-sentinel see: http://redis.io/topics/sentinel
 RUN buildDeps='gcc libc6-dev make'; \
@@ -29,13 +30,13 @@ RUN buildDeps='gcc libc6-dev make'; \
 RUN mkdir /data
 
 VOLUME /data
+VOLUME /usr/src/app/redis
 
 # ============REDIS CONFIG==============
 
 # ============COLLECTOR CONFIGS=========
 ENV MEDA_LOCATION /usr/src/app/external_configs/meda.yml
 ENV DATASET_LOCATION /usr/src/app/external_configs/datasets.yml
-ENV REDIS_CONF_LOCATION /usr/src/app/redis/redis.conf
 ENV JRUBY_OPTS -J-Xmx2g
 
 RUN mkdir -p /usr/src/app
@@ -47,7 +48,6 @@ COPY . /usr/src/app
 VOLUME /usr/src/app/meda_data
 VOLUME /usr/src/app/log
 VOLUME /usr/src/app/external_configs
-VOLUME /usr/src/app/redis
 
 RUN bundle install && gem install puma
 
