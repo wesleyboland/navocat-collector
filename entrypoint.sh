@@ -2,6 +2,6 @@
 
 set -e
 
-redis-server --appendonly yes &
+redis-server $REDIS_CONF_LOCATION
 
 $@

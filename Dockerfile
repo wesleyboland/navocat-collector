@@ -35,6 +35,7 @@ VOLUME /data
 # ============COLLECTOR CONFIGS=========
 ENV MEDA_LOCATION /usr/src/app/external_configs/meda.yml
 ENV DATASET_LOCATION /usr/src/app/external_configs/datasets.yml
+ENV REDIS_CONF_LOCATION /usr/src/app/redis/redis.conf
 ENV JRUBY_OPTS -J-Xmx2g
 
 RUN mkdir -p /usr/src/app
@@ -46,6 +47,7 @@ COPY . /usr/src/app
 VOLUME /usr/src/app/meda_data
 VOLUME /usr/src/app/log
 VOLUME /usr/src/app/external_configs
+VOLUME /usr/src/app/redis
 
 RUN bundle install && gem install puma
 

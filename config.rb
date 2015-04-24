@@ -10,7 +10,7 @@ threads 20, 300
 
 
 #Uncomment below to test locally
-bind 'tcp://127.0.0.1:8000'
+bind 'tcp://0.0.0.0:8000'
 
 #Uncomment below for the test environment 
 #bind 'tcp://10.50.0.83:80'
