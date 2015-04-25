@@ -21,8 +21,6 @@ RUN bundle install && gem install puma
 
 EXPOSE 8000
 
-RUN chmod +x entrypoint.sh
-
 ENTRYPOINT ["puma"]
 
 CMD["--config /usr/src/app/meda_configs/config.rb"]
