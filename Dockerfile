@@ -23,4 +23,4 @@ EXPOSE 8000
 
 ENTRYPOINT ["puma"]
 
-CMD["--config /usr/src/app/meda_configs/config.rb"]
+CMD["--config", "/usr/src/app/meda_configs/config.rb"]
