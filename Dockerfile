@@ -13,8 +13,7 @@ WORKDIR /usr/src/app
 
 COPY . /usr/src/app
 
-VOLUME /usr/src/app/meda_data
-VOLUME /usr/src/app/log
+VOLUME /usr/src/app
 VOLUME /usr/src/app/meda_configs
 
 RUN bundle install && gem install puma
