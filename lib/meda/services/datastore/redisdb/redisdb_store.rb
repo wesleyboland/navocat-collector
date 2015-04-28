@@ -71,7 +71,9 @@ module Meda
         pool_size = @config.redis[:pool] || REDIS_POOL_DEFAULT
         time_out = @config.redis[:time_out] || REDIS_TIMEOUT_DEFAULT
         @redis_pool = ConnectionPool.new(size: pool_size, timeout: time_out) do
-          Redis.new(:host => @config.redis[:host], :port => @config.redis[:port], :password => @config.redis[:password])
+          @host = ENV['COLLECTOR_REDIS_PORT_6379_TCP_ADDR'] || @config.redis[:host]
+          @port = ENV['COLLECTOR_REDIS_PORT_6379_TCP_PORT'] || @config.redis[:port]
+          Redis.new(:host => @host, :port => @port, :password => @config.redis[:password])
         end
       end
       @redis_pool
